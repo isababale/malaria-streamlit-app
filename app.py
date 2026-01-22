@@ -30,7 +30,7 @@ st.write("Upload blood cell images to predict their class and visualize model at
 # Load Model (cached)
 # -----------------------
 @st.cache_resource
-def load_model(model_path="resnet18_malaria_best.pth"):
+def load_model(model_path="resnet18_malaria_finetuned_best.pth"):
     """Load the trained ResNet18 model"""
     device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
     
@@ -50,7 +50,7 @@ try:
     model_loaded = True
 except Exception as e:
     st.error(f"❌ Error loading model: {e}")
-    st.info("Please ensure 'resnet18_malaria_best.pth' is in the same directory as this script.")
+    st.info("Please ensure 'resnet18_malaria_finetuned_best.pth' is in the same directory as this script.")
     model_loaded = False
     st.stop()
 
