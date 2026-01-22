@@ -465,7 +465,7 @@ if st.session_state.prediction_history:
         history_df['parasitized_prob'] = history_df['parasitized_prob'].apply(lambda x: f"{x*100:.2f}%")
         history_df['uninfected_prob'] = history_df['uninfected_prob'].apply(lambda x: f"{x*100:.2f}%")
         
-        st.dataframe(history_df, use_column_width=True)
+        st.dataframe(history_df, use_container_width=True)
         
         # Overall statistics
         st.subheader("📊 Overall Statistics")
