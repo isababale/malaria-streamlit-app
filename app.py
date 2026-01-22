@@ -397,7 +397,7 @@ else:
         
         df = pd.DataFrame([{k: v for k, v in r.items() if k not in ['Image', 'Confidence_Raw']} 
                           for r in batch_results])
-        st.dataframe(df, use_container_width=True)
+        st.dataframe(df, use_column_width=True)
         
         # Statistics
         st.subheader("📈 Batch Statistics")
