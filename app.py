@@ -246,7 +246,7 @@ if not batch_mode:
         
         col1, col2, col3 = st.columns([1, 1, 1])
         with col1:
-            st.image(image, caption="Original Image", use_container_width=True)
+            st.image(image, caption="Original Image", use_column_width=True)
         
         # Make prediction
         with st.spinner("Analyzing image..."):
@@ -300,9 +300,9 @@ if not batch_mode:
         
         # Display Grad-CAM results
         with col2:
-            st.image(heatmap, caption="Grad-CAM Heatmap", use_container_width=True)
+            st.image(heatmap, caption="Grad-CAM Heatmap", use_column_width=True)
         with col3:
-            st.image(overlay, caption="Grad-CAM Overlay", use_container_width=True)
+            st.image(overlay, caption="Grad-CAM Overlay", use_column_width=True)
         
         st.info("""
         🔍 **Interpretation**: Warmer colors (red/yellow) indicate areas the model focused on most. 
@@ -439,7 +439,7 @@ else:
                     col_a, col_b, col_c = st.columns([1, 1, 1])
                     
                     with col_a:
-                        st.image(result['Image'], caption="Original", use_container_width=True)
+                        st.image(result['Image'], caption="Original", use_column_width=True)
                     
                     # Generate Grad-CAM for review
                     gradcam = GradCAM(model, target_layer=model.layer4[-1])
@@ -448,9 +448,9 @@ else:
                     overlay, heatmap = create_gradcam_overlay(result['Image'], cam, alpha=gradcam_alpha)
                     
                     with col_b:
-                        st.image(heatmap, caption="Heatmap", use_container_width=True)
+                        st.image(heatmap, caption="Heatmap", use_column_width=True)
                     with col_c:
-                        st.image(overlay, caption="Overlay", use_container_width=True)
+                        st.image(overlay, caption="Overlay", use_column_width=True)
 
 # -----------------------
 # Prediction History
@@ -465,7 +465,7 @@ if st.session_state.prediction_history:
         history_df['parasitized_prob'] = history_df['parasitized_prob'].apply(lambda x: f"{x*100:.2f}%")
         history_df['uninfected_prob'] = history_df['uninfected_prob'].apply(lambda x: f"{x*100:.2f}%")
         
-        st.dataframe(history_df, use_container_width=True)
+        st.dataframe(history_df, use_column_width=True)
         
         # Overall statistics
         st.subheader("📊 Overall Statistics")
