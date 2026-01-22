@@ -490,7 +490,7 @@ if st.session_state.prediction_history:
 # -----------------------
 # Usage Instructions
 # -----------------------
-if not uploaded_file if not batch_mode else not uploaded_files:
+if (not batch_mode and uploaded_file is None) or (batch_mode and not uploaded_files):
     st.info("👆 Please upload image(s) to get started!")
     
     with st.expander("📖 How to Use This App"):
